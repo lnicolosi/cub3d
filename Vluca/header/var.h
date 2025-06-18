@@ -30,6 +30,8 @@ struct s_ray
 	float		dst;
 	char		face;
 	float		col;
+	float		dir_x;
+	float		dir_y;
 };
 
 struct s_lvar

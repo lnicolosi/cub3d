@@ -6,7 +6,7 @@
 /*   By: lnicolos <lnicolos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 19:17:03 by gkoller           #+#    #+#             */
-/*   Updated: 2025/06/18 20:10:42 by lnicolos         ###   ########.fr       */
+/*   Updated: 2025/06/18 20:26:34 by lnicolos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@
 // 	*(unsigned int *) dst = color;
 // }
 
-// void pixel_put(t_mlx *mlx, int x, int y, int color)
-// {
-// 	char *dst;
+void pixel_put(t_mlx *mlx, int x, int y, int color)
+{
+	char *dst;
 
-//     if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
-//         return;
-//     dst = mlx->addr + (y * mlx->line_lenght + x * (mlx->bits_per_pixel / 8));
-//     *(unsigned int *)dst = color;
-// }
+    if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
+        return;
+    dst = mlx->addr + (y * mlx->line_lenght + x * (mlx->bits_per_pixel / 8));
+    *(unsigned int *)dst = color;
+}
 
 // void affichage(t_var *var, t_ray ray)
 // {
