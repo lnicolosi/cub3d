@@ -57,4 +57,6 @@ void	free_var(t_var *var)
 		free_int_tab(&(var->map2d), var->size_map.y);
 	if (var->minimap)
 		minimap_free(var);
+	free_textures(var);
+	clean_mlx(var);
 }

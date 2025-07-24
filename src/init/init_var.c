@@ -24,6 +24,10 @@ static void	init_var_next(t_var *var)
 	var->t_so_img.img = NULL;
 	var->t_ea_img.img = NULL;
 	var->t_we_img.img = NULL;
+	var->mlx.mlx = NULL;
+	var->mlx.mlx_win = NULL;
+	var->mlx.img = NULL;
+	var->mlx.addr = NULL;
 }
 
 void	init_var(t_var *var, char **f_str)

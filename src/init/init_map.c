@@ -102,65 +102,6 @@ static int	alloc_map(int ***map2d, t_coord size_map)
 	return (0);
 }
 
-// static char *ft_str(char *str, int val)
-// {
-// 	int len;
-// 	char *s_str;
-
-// 	len = 0;
-// 	while(val > 1 && *str)
-// 	{
-// 		if (*str == '\n')
-// 			val--;
-// 		str++;
-// 	}
-// 	while(*str && *str != '\n')
-// 	{
-// 		len++;
-// 		str++;
-// 	}
-// 	str -= len;
-// 	s_str = (char *) malloc (sizeof (char) * (len + 1));
-// 	if (!s_str)
-// 		return (NULL);
-// 	ft_strlcpy(s_str, str, len + 1);
-// 	return(s_str);
-// }
-
-// char **ft_split_cub(char *str)
-// {
-// 	int	nb;
-// 	int i;
-// 	char	**split;
-
-// 	nb = 0;
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		if (str[i] == '\n')
-// 			nb++;
-// 		i++;
-// 	}
-// 	split = (char **) malloc (sizeof (char *) * (nb + 1));
-// 	if (split == NULL)
-// 		return (NULL);
-// 	i = 0;
-// 	while (i < nb)
-// 	{
-// 		split[i] = ft_str(str, i + 1);
-// 		if (!split[i])
-// 		{
-// 			while (--i >= 0)
-// 				free(split[i]);
-// 			free(split);
-// 			return (NULL);
-// 		}
-// 		i++;
-// 	}
-// 	split[nb] = NULL;
-// 	return(split);
-// }
-
 int	init_map(t_var *var, char *f_str)
 {
 	t_map	map;

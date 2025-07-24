@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*																			*/
 /*														:::	  ::::::::   */
-/*   include.h										  :+:	  :+:	:+:   */
+/*   include.h                                          :+:      :+:    :+:   */
 /*													+:+ +:+		 +:+	 */
 /*   By: gkoller <gkoller@student.42lausanne.ch>	+#+  +:+	   +#+		*/
 /*												+#+#+#+#+#+   +#+		   */
 /*   Created: 2024/12/23 16:24:35 by gkoller		   #+#	#+#			 */
-/*   Updated: 2025/05/16 08:30:31 by gkoller		  ###   ########.fr	   */
+/*   Updated: 2025/07/24 16:12:46 by lnicolos         ###   ####lausanne.ch   */
 /*																			*/
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <errno.h>
-
 
 # ifdef __APPLE__
 #  include "../lib/mlx_mac/mlx.h"
@@ -89,8 +88,8 @@ int		init_mlx(t_var *var);
 int		loop(t_var *var);
 
 //init_textures.c
-void	check_textures(t_var *var);
-void	init_textures(t_var *var);
+int		check_textures(t_var *var);
+int		init_textures(t_var *var);
 
 //Player_mov.c
 void	move_update(t_var *var);

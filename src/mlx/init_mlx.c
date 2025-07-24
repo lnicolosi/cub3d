@@ -40,8 +40,6 @@ void	msg_error_mlx(t_var *var, int err)
 int	close_window(t_var *var)
 {
 	free_var(var);
-	free_textures(var);
-	clean_mlx(var);
 	exit(0);
 	return (0);
 }
@@ -51,20 +49,23 @@ int	init_mlx(t_var *var)
 	var->mlx.mlx = mlx_init();
 	if (!var->mlx.mlx)
 		msg_error_mlx(var, 2);
-	init_textures(var);
-	var->mlx.mlx_win = mlx_new_window(var->mlx.mlx, WIDTH, HEIGHT, "cub3D");
-	var->mlx.img = mlx_new_image(var->mlx.mlx, WIDTH, HEIGHT);
-	if (!var->mlx.img)
-		msg_error_mlx(var, 3);
-	var->mlx.addr = mlx_get_data_addr(var->mlx.img, &var->mlx.bits_per_pixel,
-			&var->mlx.line_lenght, &var->mlx.endian);
-	if (!var->mlx.addr)
-		msg_error_mlx(var, 4);
-	mlx_hook(var->mlx.mlx_win, 17, 0, close_window, var);
-	mlx_hook(var->mlx.mlx_win, 2, 1L << 0, key_press, var);
-	mlx_hook(var->mlx.mlx_win, 3, 1L << 1, key_release, var);
-	mlx_loop_hook(var->mlx.mlx, loop, var);
-	mlx_loop (var->mlx.mlx);
+	if (init_textures(var) >= 0)
+	{
+		var->mlx.mlx_win = mlx_new_window(var->mlx.mlx, WIDTH, HEIGHT, "cub3D");
+		var->mlx.img = mlx_new_image(var->mlx.mlx, WIDTH, HEIGHT);
+		if (!var->mlx.img)
+			msg_error_mlx(var, 3);
+		var->mlx.addr = mlx_get_data_addr(var->mlx.img,
+				&var->mlx.bits_per_pixel,
+				&var->mlx.line_lenght, &var->mlx.endian);
+		if (!var->mlx.addr)
+			msg_error_mlx(var, 4);
+		mlx_hook(var->mlx.mlx_win, 17, 0, close_window, var);
+		mlx_hook(var->mlx.mlx_win, 2, 1L << 0, key_press, var);
+		mlx_hook(var->mlx.mlx_win, 3, 1L << 1, key_release, var);
+		mlx_loop_hook(var->mlx.mlx, loop, var);
+		mlx_loop (var->mlx.mlx);
+	}
 	return (0);
 }
 

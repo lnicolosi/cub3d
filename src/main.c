@@ -28,7 +28,10 @@ int	main(int argc, char **argv)
 		free_var(&var);
 		return (1);
 	}
-	init_mlx(&var);
-	free_var(&var);
+	else
+	{
+		init_mlx(&var);
+		free_var(&var);
+	}
 	return (0);
 }
